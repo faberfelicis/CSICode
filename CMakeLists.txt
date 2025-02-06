@@ -102,7 +102,7 @@ if(VCPKG_TOOLCHAIN)
 endif()
 
 add_library(${PROJECT_NAME} SHARED)
-add_subdirectory(src)
+add_subdirectory(reaper_csurf_integrator)
 target_link_libraries(${PROJECT_NAME} PRIVATE reaper-sdk)
 
 configure_file(
