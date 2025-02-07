@@ -37,7 +37,7 @@ cmake ..
 Generate ressources :
 ```
 cd ../reaper_csurf_integrator
-perl ../WDL/WDL/swell/swell_resgen.pl res.rc
+perl ../WDL/swell/swell_resgen.pl res.rc
 ```
 Todo : include this generation step in the CMake configuration process
 
@@ -54,4 +54,4 @@ make  # or `cmake --build .` on Windows
 Copy the reaper_csurf_integrator-x86_64.so from the build directory to ~/.config/REAPER/UserPlugins (this depends on you Reaper setup).  
 Refer to https://github.com/FunkybotsEvilTwin/CSI_Install for completing your installation.  
 A very comprehensive wiki is available at https://github.com/FunkybotsEvilTwin/CSIUserGuide/wiki for detailed instructions.  
-Please note that I have some hard crash if the CSI support files are not properly setup. Fixing this would required some CSI code updates to check for the existence of files / directories. In particuilar, the Surface.txt file has to be named with a capital S otherwise it is not found.
+Please note that I have some hard crash if the CSI support files are not properly setup. Fixing this would required some CSI code updates to check for the existence of files / directories. In particular, the Surface.txt file has to be named with a capital S otherwise it is not found.
