@@ -55,3 +55,38 @@ Copy the reaper_csurf_integrator-x86_64.so from the build directory to ~/.config
 Refer to https://github.com/FunkybotsEvilTwin/CSI_Install for completing your installation.  
 A very comprehensive wiki is available at https://github.com/FunkybotsEvilTwin/CSIUserGuide/wiki for detailed instructions.  
 Please note that I have some hard crash if the CSI support files are not properly setup. Fixing this would required some CSI code updates to check for the existence of files / directories. In particular, the Surface.txt file has to be named with a capital S otherwise it is not found.
+
+## Debug
+
+To enable debug using VSCode :  
+- create a .vscode directory
+- copy launch.json file in it 
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug REAPER Plugin",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "/opt/REAPER/reaper",
+            "processId": "${command:pickProcess}",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
+```
+- choose debug configration in vscode cmake menu and build
+- copy the reaper_csurf_integrator-x86_64.so from the build directory to ~/.config/REAPER/UserPlugins 
+- launch reaper
+- start debug session in vscode (F5)
+- set breakpoint
+- attach PID of reaper in vscode (search for reaper in attach window)
+- debug
